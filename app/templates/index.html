@@ -23,21 +23,47 @@
   </head>
 
   <body>
-    <header class="nav-bar">
-      <div class="nav-content">
-        <a href="/">
-          <div class="nav-logo">
-            <img src="./static/img/logo.svg" />
-          </div>
-        </a>
-      </div>
-    </header>
+    <nav>
+      <a class="nav-content" href="/">
+        <div class="nav-logo">
+          <img src="./static/img/logo.svg" />
+        </div>
+      </a>
+    </nav>
 
-    <div class="profile">
-      <div id="profile-picture" class="profile-picture">
-        <img src="./static/img/portrait.png" />
-      </div>
-      <h1>{{ title }}</h1>
-    </div>
+    <article>
+      <section class="profile">
+        <div class="profile-picture">
+          <img src="./static/img/portrait.png" />
+        </div>
+        <h1>{{ title }}</h1>
+      </section>
+
+      <section>
+        <h2>About Me</h2>
+        <p>
+          Hello! I'm a full-stack developer with a love for building software
+          and tinkering with new technologies. I enjoy creating applications
+          that solve real-world problems and enhance user experiences.
+        </p>
+        <br />
+        <p>
+          I'm currently studying computer science at UC Berkeley, where I
+          learned many things, from data structures and algorithms to databases
+          and internet security. In my off time, I like to work on personal
+          projects and learn more about web and mobile development. This summer,
+          I'm taking a fellowship with Meta and MLH, where I will be learning
+          more about production engineering to understand how to build and
+          maintain large-scale systems.
+        </p>
+        <br />
+        <p>
+          When I'm not coding, you can find me practicing martial arts, playing
+          video games, or exploring the great outdoors. I find these activities
+          help me stay balanced and inspired, allowing me to bring fresh ideas
+          to my work.
+        </p>
+      </section>
+    </article>
   </body>
 </html>
