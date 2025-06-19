@@ -32,7 +32,7 @@ nav {
   width: 200px;
 }
 
-/* content */
+/* general article content */
 
 article {
   width: 100%;
@@ -40,6 +40,8 @@ article {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 42px;
+  margin-bottom: 48px;
 }
 
 article section {
@@ -53,18 +55,25 @@ article h1 {
 
 article h2 {
   font-size: 1.75rem;
+  font-weight: 500;
   margin-bottom: 10px;
+}
+
+article h3 {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 article p {
   font-size: 1rem;
 }
 
+/* profile */
+
 .profile {
   display: flex;
   gap: 20px;
   align-items: flex-end;
-  margin-bottom: 42px;
 }
 
 .profile-picture img {
@@ -72,4 +81,15 @@ article p {
   height: 100px;
   object-fit: cover;
   border-radius: 999999px;
+}
+
+/* work experience */
+
+.experience {
+  margin: 24px 0;
+}
+
+.experience div {
+  display: flex;
+  justify-content: space-between;
 }
