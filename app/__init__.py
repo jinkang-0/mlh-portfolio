@@ -26,6 +26,12 @@ experiences = [
   }
 ]
 
+title = "Jinkang Fang"
+
 @app.route('/')
 def index():
-  return render_template('index.html', title="Jinkang Fang", experiences=experiences, url=os.getenv("URL"))
+  return render_template('index.html', title=title, experiences=experiences, url=os.getenv("URL"))
+
+@app.route('/hobbies')
+def hobbies():
+  return render_template('hobbies.html', title=title, url=os.getenv("URL"))
