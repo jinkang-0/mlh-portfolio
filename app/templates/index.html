@@ -37,14 +37,28 @@
     <div class="experience">
       <div>
         <h3>{{ exp.title }}</h3>
-        <p class="date">{{ exp.date }}</p>
+        <p>{{ exp.date }}</p>
       </div>
       <div>
-        <p class="company">{{ exp.company }}</p>
-        <p class="location">{{ exp.location }}</p>
+        <p>{{ exp.company }}</p>
+        <p>{{ exp.location }}</p>
       </div>
     </div>
     {% endfor %}
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="experience">
+      <div>
+        <h3>University of California, Berkeley</h3>
+        <p>Expected graduation May 2026</p>
+      </div>
+      <div>
+        <p>Bachelor of Arts in Computer Science</p>
+        <p>3.9 GPA</p>
+      </div>
+    </div>
   </section>
 </article>
 {% endblock %}
