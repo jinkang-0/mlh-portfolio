@@ -1,81 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta property="og:title" content="Personal Portfolio" />
-    <meta property="og:description" content="My Personal Portfolio" />
-    <meta property="og:url" content="{{ url }}" />
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+{% block head %}
+<link lang="css" rel="stylesheet" href="./static/styles/main.css" />
+{% endblock %}
 
-    <link lang="css" rel="stylesheet" href="./static/styles/global.css" />
-    <link lang="css" rel="stylesheet" href="./static/styles/main.css" />
-    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
-    <title>{{ title }}</title>
-  </head>
+{% block content %}
+<article>
+  <section class="profile">
+    <div class="profile-picture">
+      <img src="./static/img/portrait.png" />
+    </div>
+    <h1>{{ title }}</h1>
+  </section>
 
-  <body>
-    <nav>
-      <a href="/">
-        <div class="nav-logo">
-          <img src="./static/img/logo.svg" />
-        </div>
-      </a>
-      <div class="nav-links">
-        <a href="/" class="active">Home</a>
-        <a href="/hobbies">Hobbies</a>
+  <section>
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm a full-stack developer with a love for building software
+      and tinkering with new technologies. I enjoy creating applications
+      that solve real-world problems and enhance user experiences.
+    </p>
+    <br />
+    <p>
+      This summer, I'm taking a fellowship with Meta and MLH, where I will
+      be learning more about production engineering to understand how to
+      build and maintain large-scale systems. This website is a part of
+      that, and also a way for me to showcase my work and share my journey
+      with others.
+    </p>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+    {% for exp in experiences %}
+    <div class="experience">
+      <div>
+        <h3>{{ exp.title }}</h3>
+        <p class="date">{{ exp.date }}</p>
       </div>
-    </nav>
-
-    <article>
-      <section class="profile">
-        <div class="profile-picture">
-          <img src="./static/img/portrait.png" />
-        </div>
-        <h1>{{ title }}</h1>
-      </section>
-
-      <section>
-        <h2>About Me</h2>
-        <p>
-          Hello! I'm a full-stack developer with a love for building software
-          and tinkering with new technologies. I enjoy creating applications
-          that solve real-world problems and enhance user experiences.
-        </p>
-        <br />
-        <p>
-          This summer, I'm taking a fellowship with Meta and MLH, where I will
-          be learning more about production engineering to understand how to
-          build and maintain large-scale systems. This website is a part of
-          that, and also a way for me to showcase my work and share my journey
-          with others.
-        </p>
-      </section>
-
-      <section>
-        <h2>Work Experience</h2>
-        {% for exp in experiences %}
-        <div class="experience">
-          <div>
-            <h3>{{ exp.title }}</h3>
-            <p class="date">{{ exp.date }}</p>
-          </div>
-          <div>
-            <p class="company">{{ exp.company }}</p>
-            <p class="location">{{ exp.location }}</p>
-          </div>
-        </div>
-        {% endfor %}
-      </section>
-    </article>
-  </body>
-</html>
+      <div>
+        <p class="company">{{ exp.company }}</p>
+        <p class="location">{{ exp.location }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+</article>
+{% endblock %}

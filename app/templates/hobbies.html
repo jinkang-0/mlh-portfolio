@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set active_page = "hobbies" %}
+
+{% block title %}{{ title }} | Hobbies{% endblock %}
+
+{% block head %}
+<link lang="css" rel="stylesheet" href="./static/styles/main.css" />
+<link lang="css" rel="stylesheet" href="./static/styles/hobbies.css" />
+{% endblock %}
+
+{% set gallery = [
+  ('./static/img/yosemite.jpg', "Yosemite, forest"),
+  ('./static/img/yosemite_classic.jpg', "Yosemite, tunnel view"),
+  ('./static/img/pismo.jpg', "Pismo Beach at sunset"),
+  ('./static/img/santacruz.jpg', "Over a bridge in Santa Cruz, dusk"),
+  ('./static/img/teagarden.jpg', "San Francisco's Japanese Tea Garden"),
+  ('./static/img/tea_teagarden.jpg', "Tea at the Tea Garden"),
+  ('./static/img/staff.jpg', "Practicing the staff at the YMCA"),
+  ('./static/img/dog.jpg', "Friend's dog during my visit to Napa"),
+] %}
+
+{% block content %}
+<article>
+  <section>
+    <h2>Hobbies</h2>
+    <p>
+      In my off time, I enjoy practicing martial arts and exploring the great outdoors.
+      Here are some pictures!
+    </p>
+    <div class="grid">
+      {% for img, caption in gallery %}
+      <div class="grid-item">
+        <img src="{{ img }}" alt="{{ caption }}" />
+        <p>{{ caption }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</article>
+{% endblock %}

@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.grid-item {
+  width: 100%;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
