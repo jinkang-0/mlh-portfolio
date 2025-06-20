@@ -6,6 +6,10 @@
 {% block head %}
 <link lang="css" rel="stylesheet" href="./static/styles/main.css" />
 <link lang="css" rel="stylesheet" href="./static/styles/hobbies.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 {% endblock %}
 
 {% set gallery = [
@@ -40,12 +44,33 @@
   <section>
     <h2>Map of Places</h2>
     <p>
-      Below is a map of some of the places I've visited, pictures of which are also included above.
+      Below is a map of some of cool places I've visited, pictures of which are also included above.
       But the limited selection of photos doesn't do justice to the beauty of these locations.
       I highly recommend visiting them if you get the chance!
     </p>
     <br />
-    <img src="./static/img/travel.png" alt="Map of travels" />
+    <div id="map"></div>
   </section>
 </article>
+
+<script>
+const map = L.map('map').setView([36.8795221, -120.7056935], 6);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+L.marker([37.830880, -119.538714]).addTo(map)
+  .bindPopup('Yosemite National Park');
+
+L.marker([37.770424, -122.469861]).addTo(map)
+  .bindPopup('Golden Gate Park, Japanese Tea Garden');
+
+L.marker([36.964240, -122.018228]).addTo(map)
+  .bindPopup('Santa Cruz Beach Boardwalk');
+
+L.marker([35.156884, -120.673542]).addTo(map)
+  .bindPopup('Pismo Beach');
+</script>
 {% endblock %}

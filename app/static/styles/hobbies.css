@@ -14,3 +14,7 @@
   height: auto;
   border-radius: 8px;
 }
+
+#map {
+  height: 400px;
+}
