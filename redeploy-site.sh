@@ -16,5 +16,5 @@ source python3-virtualenv/bin/activate
 pip install -r requirements.txt
 
 # start new detached tmux session
-tmux new -s portfolio 'flask run --host=0.0.0.0'
+tmux new -ds portfolio 'flask run --host=0.0.0.0'
 
