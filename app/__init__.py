@@ -69,6 +69,11 @@ def index():
 def hobbies():
   return render_template('hobbies.html', title=title, url=os.getenv("URL"))
 
+@app.route('/timeline')
+def timeline():
+  timeline_posts = get_timeline_posts()['timeline_posts']
+  return render_template('timeline.html', title=title, timeline_posts=timeline_posts, url=os.getenv("URL"))
+
 
 # api routes
 
