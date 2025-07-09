@@ -14,5 +14,5 @@ pip install -r requirements.txt
 
 # restart daemon
 systemctl daemon-reload
-systemctl restart my-portfolio
+systemctl restart myportfolio
 
