@@ -49,24 +49,24 @@ mydb.create_tables([TimelinePost])
 # app variables
 
 experiences = [
-    {
-        "title": "Software Engineer Intern",
-        "company": "Moody's Analytics",
-        "date": "June 2024 - Aug. 2024",
-        "location": "Remote",
-    },
-    {
-        "title": "Full Stack Developer",
-        "company": "University of California, Berkeley, School of Education",
-        "date": "Oct. 2023 - May 2024",
-        "location": "Berkeley, CA",
-    },
-    {
-        "title": "Full Stack Developer",
-        "company": "Immigration Justice Project",
-        "date": "Sep. 2023 - June 2024",
-        "location": "Berkeley, CA",
-    },
+  {
+    "title": "Software Engineer Intern",
+    "company": "Moody's Analytics",
+    "date": "June 2024 - Aug. 2024",
+    "location": "Remote",
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "University of California, Berkeley, School of Education",
+    "date": "Oct. 2023 - May 2024",
+    "location": "Berkeley, CA",
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "Immigration Justice Project",
+    "date": "Sep. 2023 - June 2024",
+    "location": "Berkeley, CA",
+  },
 ]
 
 title = "Jinkang Fang"
