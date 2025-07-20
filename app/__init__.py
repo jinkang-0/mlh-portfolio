@@ -90,7 +90,6 @@ def timeline():
 
 # api routes
 
-
 @app.route('/api/timeline_post', methods=['POST'])
 def post_timeline_post():
   # Get form data
