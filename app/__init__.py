@@ -44,6 +44,8 @@ class TimelinePost(Model):
 mydb.connect()
 mydb.create_tables([TimelinePost])
 
+
+
 # app variables
 
 experiences = [
