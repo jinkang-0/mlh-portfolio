@@ -74,14 +74,13 @@ title = "Jinkang Fang"
 
 # page routes
 
-
 @app.route('/')
 def index():
   return render_template('index.html', title=title, experiences=experiences, url=os.getenv("URL"))
 
 @app.route('/hobbies')
 def hobbies():
-  return render_template("hobbies.html", title=title, url=os.getenv("URL"))
+  return render_template('hobbies.html', title=title, url=os.getenv("URL"))
 
 @app.route('/timeline')
 def timeline():
@@ -118,19 +117,16 @@ def post_timeline_post():
   return model_to_dict(timeline_post)
 
 
-@app.route("/api/timeline_post", methods=["GET"])
+@app.route('/api/timeline_post', methods=['GET'])
 def get_timeline_posts():
   return {
-    "timeline_posts": [
-      model_to_dict(p)
-      for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
-    ]
+    'timeline_posts': [model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())]
   }
 
 
-@app.route("/api/timeline_post", methods=["DELETE"])
+@app.route('/api/timeline_post', methods=['DELETE'])
 def delete_timeline_post():
   post_id = request.form["id"]
   post = TimelinePost.get(TimelinePost.id == post_id)
   post.delete_instance()
-  return {"status": "success", "message": "Post deleted successfully"}
+  return {'status': 'success', 'message': 'Post deleted successfully'}
