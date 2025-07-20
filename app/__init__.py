@@ -93,28 +93,27 @@ def timeline():
 @app.route('/api/timeline_post', methods=['POST'])
 def post_timeline_post():
   # Get form data
-  name = request.form.get("name", "").strip()
-  email = request.form.get("email", "").strip()
-  content = request.form.get("content", "").strip()
+  name = request.form.get('name', '').strip()
+  email = request.form.get('email', '').strip()
+  content = request.form.get('content', '').strip()
 
   # Validate name
   if not name:
-    return "Invalid name", 400
+    return 'Invalid name', 400
 
   # Validate content
   if not content:
-    return "Invalid content", 400
+    return 'Invalid content', 400
 
   # Validate email format
   email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
   if not email or not re.match(email_pattern, email):
-    return "Invalid email", 400
+    return 'Invalid email', 400
 
   # Create timeline post if all validations pass
   timeline_post = TimelinePost.create(name=name, email=email, content=content)
 
   return model_to_dict(timeline_post)
-
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_timeline_posts():
@@ -122,10 +121,9 @@ def get_timeline_posts():
     'timeline_posts': [model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())]
   }
 
-
 @app.route('/api/timeline_post', methods=['DELETE'])
 def delete_timeline_post():
-  post_id = request.form["id"]
+  post_id = request.form['id']
   post = TimelinePost.get(TimelinePost.id == post_id)
   post.delete_instance()
   return {'status': 'success', 'message': 'Post deleted successfully'}
