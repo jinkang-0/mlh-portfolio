@@ -40,11 +40,9 @@ class TimelinePost(Model):
   class Meta:
     database = mydb
 
-
 # connect and attach models
 mydb.connect()
 mydb.create_tables([TimelinePost])
-
 
 # app variables
 
@@ -53,20 +51,20 @@ experiences = [
     "title": "Software Engineer Intern",
     "company": "Moody's Analytics",
     "date": "June 2024 - Aug. 2024",
-    "location": "Remote",
+    "location": "Remote"
   },
   {
     "title": "Full Stack Developer",
     "company": "University of California, Berkeley, School of Education",
     "date": "Oct. 2023 - May 2024",
-    "location": "Berkeley, CA",
+    "location": "Berkeley, CA"
   },
   {
     "title": "Full Stack Developer",
     "company": "Immigration Justice Project",
     "date": "Sep. 2023 - June 2024",
-    "location": "Berkeley, CA",
-  },
+    "location": "Berkeley, CA"
+  }
 ]
 
 title = "Jinkang Fang"
@@ -75,33 +73,24 @@ title = "Jinkang Fang"
 # page routes
 
 
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template(
-        "index.html", title=title, experiences=experiences, url=os.getenv("URL")
-    )
+  return render_template('index.html', title=title, experiences=experiences, url=os.getenv("URL"))
 
-
-@app.route("/hobbies")
+@app.route('/hobbies')
 def hobbies():
-    return render_template("hobbies.html", title=title, url=os.getenv("URL"))
+  return render_template("hobbies.html", title=title, url=os.getenv("URL"))
 
-
-@app.route("/timeline")
+@app.route('/timeline')
 def timeline():
-    timeline_posts = get_timeline_posts()["timeline_posts"]
-    return render_template(
-        "timeline.html",
-        title=title,
-        timeline_posts=timeline_posts,
-        url=os.getenv("URL"),
-    )
+  timeline_posts = get_timeline_posts()['timeline_posts']
+  return render_template('timeline.html', title=title, timeline_posts=timeline_posts, url=os.getenv("URL"))
 
 
 # api routes
 
 
-@app.route("/api/timeline_post", methods=["POST"])
+@app.route('/api/timeline_post', methods=['POST'])
 def post_timeline_post():
   # Get form data
   name = request.form.get("name", "").strip()
