@@ -6,13 +6,9 @@ git fetch
 git checkout main
 git reset origin/main --hard
 
-# enter python virtual env
-source python3-virtualenv/bin/activate
+# ensure server is down
+docker compose -f docker-compose.prod.yml down
 
-# install python repositories
-pip install -r requirements.txt
-
-# restart daemon
-systemctl daemon-reload
-systemctl restart myportfolio
-
+# spin up docker containers
+# specify --build to force rebuild in case of code changes
+docker compose -f docker-compose.prod.yml up -d --build
