@@ -10,6 +10,9 @@
 
 {% block content %}
 <article>
+	<section>
+		<div id="errorBox"></div>
+	</section>
   <section>
     <h2>Add Post</h2>
     <form id="timeline-form">
@@ -41,19 +44,27 @@
 
 <script>
 const form = document.getElementById('timeline-form');
+const errorBox = document.getElementById('errorBox');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   
   const formData = new FormData(form);
 
-  await fetch('/api/timeline_post', {
+  const result = await fetch('/api/timeline_post', {
     method: 'POST',
     body: formData
   });
 
-  form.reset();
-  location.reload();
+	// rate limited
+	if (!result.ok) {
+		errorBox.innerHTML = "Please wait a minute before your next post.";
+	} else {
+		// request went through
+		errorBox.innerHTML = "";
+  	form.reset();
+  	location.reload();
+	}
 })
 </script>
 {% endblock %}
