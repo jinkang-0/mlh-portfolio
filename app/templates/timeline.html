@@ -11,7 +11,7 @@
 {% block content %}
 <article>
 	<section>
-		<div id="errorBox"></div>
+		<div id="errorBox" class="hidden"></div>
 	</section>
   <section>
     <h2>Add Post</h2>
@@ -58,12 +58,14 @@ form.addEventListener('submit', async (e) => {
 
 	// rate limited
 	if (!result.ok) {
+		errorBox.classList.remove('hidden');
 		errorBox.innerHTML = "Please wait a minute before your next post.";
 	} else {
-		// request went through
-		errorBox.innerHTML = "";
-  	form.reset();
-  	location.reload();
+	  // request went through
+	  errorBox.classList.add('hidden');
+	  errorBox.innerHTML = "";
+  	  form.reset();
+  	  location.reload();
 	}
 })
 </script>
