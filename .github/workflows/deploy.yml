@@ -33,7 +33,7 @@ jobs:
         run: ssh vps 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh'
 
       - name: Print container status
-        run: docker compose -f docker-compose.prod.yml ps
+        run: ssh vps 'cd ${{ secrets.PROJECT_ROOT }} && docker compose -f docker-compose.prod.yml ps'
 
       - name: Send Discord message
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
